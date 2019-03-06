@@ -2,6 +2,12 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 
 #
+# For some reason TARGET_SUPPORTS_SHARED_LIBS isn't set sometimes.
+# Setting it here explicitly.
+#
+SET_PROPERTY(GLOBAL PROPERTY TARGET_SUPPORTS_SHARED_LIBS TRUE)
+
+#
 # Find Google microbenchmark support library
 #
 FIND_PACKAGE(benchmark REQUIRED
@@ -25,8 +31,7 @@ SET(CMAKE_CXX_EXTENSIONS OFF)
 
 ADD_EXECUTABLE(find_element source/find_element.cc)
 
-# ADD_LIBRARY(finite_element STATIC)
 TARGET_LINK_LIBRARIES(find_element
-  PUBLIC benchmark::benchmark
-         GTest::GTest)
+  PUBLIC benchmark::benchmark GTest::gtest)
+
 TARGET_COMPILE_DEFINITIONS(find_element PUBLIC)

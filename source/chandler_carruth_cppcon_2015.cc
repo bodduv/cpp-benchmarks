@@ -79,3 +79,4 @@ static void BM_reserve_push_back(benchmark::State& state)
 BENCHMARK(BM_reserve_push_back);
 
 BENCHMARK_MAIN();
+

@@ -7,10 +7,12 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 #
 SET_PROPERTY(GLOBAL PROPERTY TARGET_SUPPORTS_SHARED_LIBS TRUE)
 
+PROJECT(Cpp_Benchmarks)
+
 #
 # Find Boost library
 #
-FIND_PACKAGE(Boost 1.68.0)
+FIND_PACKAGE(Boost REQUIRED)
 
 #
 # Find Google microbenchmark support library
@@ -23,11 +25,6 @@ FIND_PACKAGE(GTest REQUIRED
   HINTS ${GTest_DIR} ${GTEST_DIR} ../ ../../ $ENV{GTest_DIR}
 )
 
-PROJECT(Cpp_Benchmarks)
-
-#
-# SET(SOURCES
-#    source/find_element.cpp)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -DNDEBUG")
 SET(CMAKE_CXX_STANDARD 14)

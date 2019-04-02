@@ -71,13 +71,8 @@ template <
          >
 void
 fill_random (ContainerType<value_type, std::allocator<value_type>> &container,
-             const unsigned int maximum)
-{
-  RandomDevice rd;
-
-  for (auto & element : container)
-    element = rd.get_random_number<value_type> (0,maximum);
-}
+             typename ContainerType<value_type, std::allocator<value_type>>::size_type container_size,
+             const unsigned int maximum);
 
 
 #endif // __utilities_h
